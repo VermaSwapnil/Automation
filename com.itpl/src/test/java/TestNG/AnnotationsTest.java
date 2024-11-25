@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Annotations {
+public class AnnotationsTest {
 	
 	@BeforeSuite
 	public void beforeSuite()
