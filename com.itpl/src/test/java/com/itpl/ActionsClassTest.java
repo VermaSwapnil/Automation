@@ -8,11 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
 public class ActionsClassTest {
 	
-	public static void main(String[] args) throws InterruptedException {
+	
 		
+		@Test
+		public void action() throws InterruptedException
+		{
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -27,6 +31,6 @@ public class ActionsClassTest {
 		
 		Thread.sleep(2000);
 		driver.quit();
-	}
+		}
 
 }
