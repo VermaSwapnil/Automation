@@ -2,6 +2,8 @@ package Test;
 
 import static io.restassured.RestAssured.*;
 
+import io.restassured.path.json.JsonPath;
+
 public class OAuthTest {
 	
 	public static void main (String[] args)
@@ -14,7 +16,16 @@ public class OAuthTest {
 				.when().log().all()
 				.post("https://rahulshettyacademy.com/oauthapi/oauth2/resourceOwner/token").asString();
 		
-		System.out.println("");
+		System.out.println(response);
+		
+		JsonPath jsonPath = new JsonPath(response);
+		String accessToken = jsonPath.getString("access_token");
+		
+		String response2 = given()
+		.queryParam("access_token", accessToken)
+		.when().log().all()
+		.get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").asString();
+		System.out.println(response2);
 	}
 	
 
